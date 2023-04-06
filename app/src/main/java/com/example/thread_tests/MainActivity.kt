@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     private fun buttonFunction() {
         var state = false
 
-        binding.Text.text = "Fetching That Inexistent Something..."
+        binding.Text.text = getString(R.string.fetchingText)
         loadingBarOnOffFunction(state)
         Handler(Looper.getMainLooper()).postDelayed({
             state = true
