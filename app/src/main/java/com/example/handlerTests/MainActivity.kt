@@ -7,9 +7,8 @@ import android.os.Handler
 import android.view.View
 import com.example.handlerTests.databinding.ActivityMainBinding
 
-private lateinit var binding : ActivityMainBinding
-
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             if(counter == 1){
                 binding.infoBox.text = getString(R.string.counterWarning)
             } else {
-                binding.infoBox.text = getString(R.string.resetText)
+                binding.infoBox.text = getString(R.string.counterReset)
                 counter = 1
             }
         }
