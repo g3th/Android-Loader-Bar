@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.resetButton.setOnClickListener {
             if(counter == 1){
-                binding.Text.text = getString(R.string.counterWarning)
+                binding.infoBox.text = getString(R.string.counterWarning)
             } else {
-                binding.Text.text = getString(R.string.resetText)
+                binding.infoBox.text = getString(R.string.resetText)
                 counter = 1
             }
         }
@@ -36,17 +36,16 @@ class MainActivity : AppCompatActivity() {
     private fun buttonFunction() {
         var state = false
 
-        binding.Text.text = "Fetching That Inexistent Something..."
+        binding.infoBox.text = getString(R.string.fetchText)
         loadingBarOnOffFunction(state)
         Handler(Looper.getMainLooper()).postDelayed({
             state = true
             loadingBarOnOffFunction(state)
             if (counter < 2){
                 timeOrTimes = "time"
-            } else{
-                timeOrTimes = "times"
             }
-            binding.Text.text = getString(R.string.Text, counter.toString(), timeOrTimes)
+            timeOrTimes = "times"
+            binding.infoBox.text = getString(R.string.infoText, counter.toString(), timeOrTimes)
             binding.mainButton.text = getString(R.string.buttonTextAfter)
             counter += 1
         },3000)
