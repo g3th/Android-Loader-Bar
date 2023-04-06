@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Handler Tests</string>
+    <string name="buttonText">Fetch</string>
+    <string name="resetText">Reset Counter</string>
+    <string name="buttonTextAfter">Fetch Again</string>
+    <string name="Text">The Requested Operation has Completed %s %s.</string>
+    <string name="counterWarning">Counter is already at One.</string>
+    <string name="counterReset">Counter has been reset</string>
+</resources>
