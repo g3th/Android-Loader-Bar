@@ -7,8 +7,9 @@ import android.os.Handler
 import android.view.View
 import com.example.handlerTests.databinding.ActivityMainBinding
 
+private lateinit var binding : ActivityMainBinding
+
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -21,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.resetButton.setOnClickListener {
             if(counter == 1){
-                binding.infoBox.text = getString(R.string.counterWarning)
+                binding.Text.text = getString(R.string.counterWarning)
             } else {
-                binding.infoBox.text = getString(R.string.counterReset)
+                binding.Text.text = getString(R.string.resetText)
                 counter = 1
             }
         }
@@ -31,18 +32,21 @@ class MainActivity : AppCompatActivity() {
 
     private var counter = 1
     private var timeOrTimes : String? = null
+
     private fun buttonFunction() {
         var state = false
-        binding.infoBox.text = getString(R.string.fetchingText)
+
+        binding.Text.text = "Fetching That Inexistent Something..."
         loadingBarOnOffFunction(state)
         Handler(Looper.getMainLooper()).postDelayed({
             state = true
             loadingBarOnOffFunction(state)
             if (counter < 2){
                 timeOrTimes = "time"
+            } else{
+                timeOrTimes = "times"
             }
-            timeOrTimes = "times"
-            binding.infoBox.text = getString(R.string.infoText, counter.toString(), timeOrTimes)
+            binding.Text.text = getString(R.string.Text, counter.toString(), timeOrTimes)
             binding.mainButton.text = getString(R.string.buttonTextAfter)
             counter += 1
         },3000)
